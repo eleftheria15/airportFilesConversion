@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by www.serialnews.com (www.serialnews.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="passangerlist">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="passangers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="passanger" type="passanger" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="kljuc">
+						<xs:selector xpath="passanger"/>
+						<xs:field xpath="@id"/>
+					</xs:key>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="passanger">
+		<xs:sequence>
+			<xs:element name="first_name" type="xs:string"/>
+			<xs:element name="last_name" type="xs:string"/>
+			<xs:element name="gender" type="xs:string"/>
+			<xs:element name="age" type="xs:positiveInteger"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="street" type="xs:string"/>
+			<xs:element name="phone" type="xs:string"/>
+			<xs:element name="flight"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:positiveInteger"/>
+	</xs:complexType>
+</xs:schema>

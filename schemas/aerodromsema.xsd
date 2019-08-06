@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by www.serialnews.com (www.serialnews.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="airportslist">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="airports">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="airport" type="airport" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+					<xs:key name="dd">
+						<xs:selector xpath="airport"/>
+						<xs:field xpath="@id"/>
+					</xs:key>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="airport">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="town">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="phone" type="xs:positiveInteger"/>
+			<xs:element name="street" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:positiveInteger"/>
+	</xs:complexType>
+</xs:schema>
